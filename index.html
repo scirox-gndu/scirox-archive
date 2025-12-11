@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>SciRox Science Club - GNDU Amritsar</title>
+    <style>
+        /* --- GENERAL STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 1rem 5%;
+            position: sticky; /* Keeps header visible when scrolling */
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px; /* Default height for desktop */
+            width: auto;
+            object-fit: contain;
+        }
+
+        .title-container {
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        h1 {
+            color: #002147;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            flex: 1;
+            padding: 2.5rem 1rem; /* Reduced side padding */
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- GRID LAYOUT (Naturally Responsive) --- */
+        .resource-grid {
+            display: grid;
+            /* Auto-fit creates as many columns as fit. 
+               minmax(280px, 1fr) means cards won't get smaller than 280px 
+               but will stretch to fill space. */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: #002147;
+        }
+
+        .card h3 {
+            color: #002147;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Pushes button to bottom */
+        }
+
+        /* --- BUTTONS --- */
+        .card-btn {
+            display: block; /* Full width button looks better on mobile cards */
+            width: 100%;
+            text-decoration: none;
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+        }
+
+        .card-btn:hover {
+            background-color: #003d80;
+        }
+
+        .card-btn.youtube { background-color: #cc0000; }
+        .card-btn.youtube:hover { background-color: #990000; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #002147;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: auto;
+        }
+
+        /* --- MOBILE SPECIFIC ADJUSTMENTS (MEDIA QUERIES) --- */
+        @media (max-width: 768px) {
+            
+            /* Stack header elements vertically */
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* Logos smaller on mobile */
+            .logo {
+                height: 60px;
+            }
+            
+            /* Order: Put Logos side-by-side or stack? 
+               Here we keep them stacked for simplicity, 
+               or use a sub-flexbox to put logos side-by-side. 
+               Let's stack nicely. */
+            
+            h1 {
+                font-size: 1.5rem; /* Smaller Title */
+            }
+
+            h2 {
+                font-size: 0.9rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            .intro-text {
+                margin-bottom: 2rem;
+            }
+            
+            /* Make buttons easier to tap */
+            .card-btn {
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/1a/Guru_Nanak_Dev_University_Logo.png" alt="GNDU Logo" class="logo">
+            
+            <div class="title-container">
+                <h1>SciRox Science Club</h1>
+                <h2>Guru Nanak Dev University, Amritsar</h2>
+            </div>
+
+            <img src="https://scontent.fluh4-1.fna.fbcdn.net/v/t39.30808-6/236253729_103213418744555_7476137631235731721_n.png?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ErpMt4j-4NEQ7kNvwEhXEW-&_nc_oc=AdntdmHrBFiE7FN4cIMSPE-A0d2hHhl7FMISbbp6akSBJq4BZGpK4REJbcrVUbvupNUA0DnT1jrWI5TvlEyA0-lf&_nc_zt=23&_nc_ht=scontent.fluh4-1.fna&_nc_gid=KH5LIVbfYjGaENos3M7PMg&oh=00_AflCZdQZ0V_y0mesl-OuX4FI7gfhao3TwHQZz8F3yQi8kA&oe=6940F337" alt="SciRox Logo" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <div class="intro-text">
+            <p>Welcome to the official portal. Connect with science, innovation, and research through the links below.</p>
+        </div>
+
+        <div class="resource-grid">
+            
+            <div class="card">
+                <h3>SciRox GNDU</h3>
+                <p>Official portal for events, members, and club updates.</p>
+                <a href="https://sites.google.com/view/scirox-gndu" target="_blank" class="card-btn">Visit Website</a>
+            </div>
+
+            <div class="card">
+                <h3>Project Tunneling</h3>
+                <p>Watch the complete video series on YouTube.</p>
+                <a href="https://www.youtube.com/playlist?list=PLeElmDuvsd1YaFwgKYLfQWJKLrZQsox0v" target="_blank" class="card-btn youtube">Watch Playlist</a>
+            </div>
+
+            <div class="card">
+                <h3>Vigyan Safari</h3>
+                <p>Read about the Vigyan Safari launch by SciRox & SPSTI.</p>
+                <a href="https://spsti.org/scirox-gndu-and-spsti-launched-vigyan-safari-in-amritsar/" target="_blank" class="card-btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>Inertia</h3>
+                <p>Explore science communication publications and authors.</p>
+                <a href="https://sites.google.com/view/inertiasciencecommunication/Authors?authuser=4" target="_blank" class="card-btn">View Inertia</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SciRox Science Club, GNDU. <br>Designed for Students & Researchers.</p>
+    </footer>
+
+</body>
+</html>
